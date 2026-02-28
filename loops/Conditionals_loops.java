@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class conditionals_loops {
+public class Conditionals_loops {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -55,25 +55,40 @@ public class conditionals_loops {
         // System.out.println(rev);
 
         // calculator program
-        while (true) {
-            char op = sc.next().trim().charAt(0);
-            if (op == '+' || op == '-' || op == '*' || op == '/' || op == '%') {
-                int a = sc.nextInt();
-                int b = sc.nextInt();
-                if (op == '+')
-                    System.out.println(a + b);
-                if (op == '-')
-                    System.out.println(a - b);
-                if (op == '*')
-                    System.out.println(a * b);
-                if (op == '/')
-                    System.out.println(a / b);
-                if (op == '/' && b != 0)
-                    System.out.println(a % b);
-            } else if (op == 'x' || op == 'X') {
-                System.out.println("Enter valid input");
+        // while (true) {
+        // char op = sc.next().trim().charAt(0);
+        // if (op == '+' || op == '-' || op == '*' || op == '/' || op == '%') {
+        // int a = sc.nextInt();
+        // int b = sc.nextInt();
+        // if (op == '+')
+        // System.out.println(a + b);
+        // if (op == '-')
+        // System.out.println(a - b);
+        // if (op == '*')
+        // System.out.println(a * b);
+        // if (op == '/')
+        // System.out.println(a / b);
+        // if (op == '/' && b != 0)
+        // System.out.println(a % b);
+        // } else if (op == 'x' || op == 'X') {
+        // System.out.println("Enter valid input");
+        // break;
+        // }
+        // }
+
+        // check for prime number
+        int n = sc.nextInt();
+        boolean prime = true;
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                prime = false;
                 break;
             }
+        }
+        if (prime) {
+            System.out.println("prime number");
+        } else {
+            System.out.println("not prime");
         }
     }
 }
