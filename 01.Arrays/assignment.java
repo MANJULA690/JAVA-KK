@@ -188,4 +188,136 @@ public class assignment {
         }
         return res;
     }
+
+    public List<Integer> addToArrayForm(int[] num, int k) {
+        List<Integer> res = new ArrayList<>();
+        int i = num.length - 1;
+        while (i >= 0 || k > 0) {
+            if (i >= 0) {
+                k += num[i];
+                i--;
+            }
+            res.add(k % 10);
+            k /= 10;
+        }
+        Collections.reverse(res);
+        return res;
+    }
+
+    public int maximumPopulation(int[][] logs) {
+        int[] year = new int[101];
+        for (int[] log : logs) {
+            year[log[0] - 1950]++;
+            year[log[1] - 1950]--;
+        }
+        int max = 0, population = 0, res = 0;
+        for (int i = 0; i < 101; i++) {
+            population += year[i];
+            if (max < population) {
+                max = population;
+                res = i;
+            }
+        }
+        return res + 1950;
+    }
+
+    public boolean findRotation(int[][] mat, int[][] target) {
+        for (int i = 0; i < 4; i++) {
+            if (isEqual(mat, target))
+                return true;
+            rotate(mat);
+        }
+        return false;
+    }
+
+    public boolean isEqual(int[][] mat, int[][] target) {
+        int n = mat.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (mat[i][j] != target[i][j])
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public void rotate(int[][] mat) {
+        int n = mat.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                int temp = mat[i][j];
+                mat[i][j] = mat[j][i];
+                mat[j][i] = temp;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n / 2; j++) {
+                int temp = mat[i][j];
+                mat[i][j] = mat[i][n - j - 1];
+                mat[i][n - 1 - j] = temp;
+            }
+        }
+    }
+
+    public int[] twoSum(int[] nums, int target) {
+        int[] ans = new int[2];
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] + nums[j] == target) {
+                    ans[0] = i;
+                    ans[1] = j;
+                }
+            }
+        }
+        return ans;
+    }
+
+    public int[] sumZero(int n) {
+        int[] res = new int[n];
+        int idx = 0;
+        for (int i = 1; i <= n / 2; i++) {
+            res[idx++] = i;
+            res[idx++] = -i;
+        }
+        return res;
+    }
+
+    public List<Integer> luckyNumbers(int[][] matrix) {
+        List<Integer> rowMin = new ArrayList<>();
+        List<Integer> colMax = new ArrayList<>();
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        for (int i = 0; i < m; i++) {
+            int min = Integer.MAX_VALUE;
+            for (int j = 0; j < n; j++) {
+                min = Math.min(min, matrix[i][j]);
+            }
+            rowMin.add(min);
+        }
+
+        for (int i = 0; i < n; i++) {
+            int max = Integer.MIN_VALUE;
+            for (int j = 0; j < m; j++) {
+                max = Math.max(max, matrix[j][i]);
+            }
+            colMax.add(max);
+        }
+
+        rowMin.retainAll(colMax);
+        return rowMin;
+    }
+
+    public int maxSubArray(int[] nums) {
+        int curr = 0, max = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            curr += nums[i];
+            if (curr > max)
+                max = curr;
+            if (curr < 0)
+                curr = 0;
+        }
+        return max;
+    }
 }
