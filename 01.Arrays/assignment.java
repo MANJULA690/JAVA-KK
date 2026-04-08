@@ -320,4 +320,101 @@ public class assignment {
         }
         return max;
     }
+
+    public int[][] matrixReshape(int[][] mat, int r, int c) {
+        int m = mat.length;
+        int n = mat[0].length;
+        if (m * n != r * c)
+            return mat;
+
+        int[][] res = new int[r][c];
+        int idx = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                res[idx / c][idx % c] = mat[i][j];
+                idx++;
+            }
+        }
+        return res;
+    }
+
+    public int[] plusOne(int[] digits) {
+        int n = digits.length;
+        for (int i = n - 1; i >= 0; i--) {
+            if (digits[i] != 9) {
+                digits[i]++;
+                return digits;
+            }
+            digits[i] = 0;
+        }
+        int[] res = new int[n + 1];
+        res[0] = 1;
+        return res;
+    }
+
+    public int removeDuplicates(int[] nums) {
+        int i = 1;
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[j] != nums[i - 1]) {
+                nums[i] = nums[j];
+                i++;
+            }
+        }
+        return i;
+    }
+
+    public int minCostToMoveChips(int[] position) {
+        int evenCount = 0;
+        int oddCount = 0;
+        for (int pos : position) {
+            if (pos % 2 == 0)
+                evenCount++;
+            else
+                oddCount++;
+        }
+        return Math.min(oddCount, evenCount);
+    }
+
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> result = new ArrayList<Integer>();
+        int startRow = 0;
+        int startCol = 0;
+        int endRow = matrix.length - 1;
+        int endCol = matrix[0].length - 1;
+
+        while (startRow <= endRow && startCol <= endCol) {
+            // top
+            for (int i = startCol; i <= endCol; i++) {
+                result.add(matrix[startRow][i]);
+            }
+
+            // right
+            for (int i = startRow + 1; i <= endRow; i++) {
+                result.add(matrix[i][endCol]);
+            }
+
+            // bottom
+            for (int i = endCol - 1; i >= startCol; i--) {
+                if (startRow == endRow) {
+                    break;
+                }
+                result.add(matrix[endRow][i]);
+            }
+
+            // left
+            for (int i = endRow - 1; i >= startRow + 1; i--) {
+                if (startCol == endCol) {
+                    break;
+                }
+                result.add(matrix[i][startCol]);
+            }
+
+            startRow++;
+            startCol++;
+            endRow--;
+            endCol--;
+        }
+
+        return result;
+    }
 }
