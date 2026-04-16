@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class Assignment {
+public class SearchingAssignment {
     public int mySqrt(int x) {
         if (x == 0 || x == 1)
             return x;
@@ -284,6 +284,55 @@ public class Assignment {
         for (int x = 1; x <= n; x++) {
             if (nums[n - x] >= x && (n - x == 0 || nums[n - x - 1] < x)) {
                 return x;
+            }
+        }
+        return -1;
+    }
+
+    // medium
+    public int[] searchRange(int[] nums, int target) {
+        int first = search(nums, target, true);
+        int last = search(nums, target, false);
+        return new int[] { first, last };
+    }
+
+    public int search(int[] nums, int target, boolean first) {
+        int ans = -1;
+        int start = 0, end = nums.length - 1;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (nums[mid] == target) {
+                ans = mid;
+                if (first) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            } else if (nums[mid] < target)
+                start = mid + 1;
+            else
+                end = mid - 1;
+        }
+        return ans;
+    }
+
+    public int singleNonDuplicate(int[] nums) {
+        int n = nums.length;
+        if (n == 1)
+            return nums[0];
+        if (nums[0] != nums[1])
+            return nums[0];
+        if (nums[n - 1] != nums[n - 2])
+            return nums[n - 1];
+        int start = 1, end = n - 2;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+            if (nums[mid] != nums[mid - 1] && nums[mid] != nums[mid + 1])
+                return nums[mid];
+            if ((mid % 2 == 0 && nums[mid] == nums[mid + 1]) || (mid % 2 == 1 && nums[mid] == nums[mid - 1])) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
             }
         }
         return -1;
