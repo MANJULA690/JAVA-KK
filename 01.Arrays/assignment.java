@@ -1,5 +1,6 @@
 import java.util.*;;
 
+// 1920. Build Array from Permutation
 public class assignment {
     public int[] buildArray(int[] nums) {
         int[] res = new int[nums.length];
@@ -9,6 +10,7 @@ public class assignment {
         return res;
     }
 
+    // 1929. Concatenation of Array
     public int[] getConcatenation(int[] nums) {
         int n = nums.length;
         int[] ans = new int[2 * n];
@@ -18,6 +20,7 @@ public class assignment {
         return ans;
     }
 
+    // 1480. Running Sum of 1d Array
     public int[] runningSum(int[] nums) {
         int[] runningSum = new int[nums.length];
         int sum = 0;
@@ -28,6 +31,7 @@ public class assignment {
         return runningSum;
     }
 
+    // 1672. Richest Customer Wealth
     public int maximumWealth(int[][] accounts) {
         int max = Integer.MIN_VALUE;
         for (int[] row : accounts) {
@@ -40,6 +44,7 @@ public class assignment {
         return max;
     }
 
+    // 1470. Shuffle the Array
     public int[] shuffle(int[] nums, int n) {
         int[] ans = new int[2 * n];
         for (int i = 0; i < n; i++) {
