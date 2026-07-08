@@ -54,6 +54,8 @@ public class assignment {
         return ans;
     }
 
+
+    // 1431. Kids With the Greatest Number of Candies
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
         List<Boolean> list = new ArrayList<>();
         int max = Integer.MIN_VALUE;
@@ -66,6 +68,8 @@ public class assignment {
         return list;
     }
 
+
+    // 1512. Number of Good Pairs
     public int numIdenticalPairs(int[] nums) {
         int n = nums.length;
         int count = 0;
@@ -78,6 +82,8 @@ public class assignment {
         return count;
     }
 
+
+    // 1365. How Many Numbers Are Smaller Than the Current Number
     public int[] smallerNumbersThanCurrent(int[] nums) {
         int[] ans = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
@@ -90,6 +96,8 @@ public class assignment {
         return ans;
     }
 
+
+    // 1389. Create Target Array in the Given Order
     public int[] createTargetArray(int[] nums, int[] index) {
         int n = nums.length;
         ArrayList<Integer> list = new ArrayList<>();
@@ -103,6 +111,8 @@ public class assignment {
         return target;
     }
 
+
+    // 1832. Check if the Sentence Is Pangram
     public boolean checkIfPangram(String sentence) {
         if (sentence.length() < 26)
             return false;
