@@ -147,6 +147,8 @@ public class assignment {
         return count;
     }
 
+
+    // 1732. Find the Highest Altitude
     public int largestAltitude(int[] gain) {
         int res = 0;
         int alt = 0;
@@ -157,6 +159,8 @@ public class assignment {
         return res;
     }
 
+
+    // 832. Flipping an Image
     public int[][] flipAndInvertImage(int[][] image) {
         int n = image.length;
         for (int[] row : image) {
@@ -169,6 +173,8 @@ public class assignment {
         return image;
     }
 
+
+    // 1252. Cells with Odd Values in a Matrix
     public int oddCells(int m, int n, int[][] indices) {
         int[] row = new int[m];
         int[] col = new int[n];
@@ -186,6 +192,21 @@ public class assignment {
         return count;
     }
 
+    // 1572. Matrix Diagonal Sum
+    public int diagonalSum(int[][] mat) {
+        int n=mat.length;
+        int sum=0;
+        for(int i=0; i<n; i++){
+            sum+=mat[i][i];
+            if(i!= n-1-i){
+                sum+=mat[i][n-1-i];
+            }
+        }
+        return sum;
+    }
+
+
+    // 1295. Find Numbers with Even Number of Digits
     public int findNumbers(int[] nums) {
         int count = 0;
         for (int num : nums) {
@@ -195,6 +216,8 @@ public class assignment {
         return count;
     }
 
+
+    // 867. Transpose Matrix
     public int[][] transpose(int[][] matrix) {
         int m = matrix.length, n = matrix[0].length;
         int[][] res = new int[n][m];
@@ -206,6 +229,8 @@ public class assignment {
         return res;
     }
 
+
+    // 989. Add to Array-Form of Integer
     public List<Integer> addToArrayForm(int[] num, int k) {
         List<Integer> res = new ArrayList<>();
         int i = num.length - 1;
@@ -221,6 +246,8 @@ public class assignment {
         return res;
     }
 
+
+    // 1854. Maximum Population Year
     public int maximumPopulation(int[][] logs) {
         int[] year = new int[101];
         for (int[] log : logs) {
