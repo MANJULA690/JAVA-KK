@@ -265,6 +265,8 @@ public class assignment {
         return res + 1950;
     }
 
+
+    // 1886. Determine Whether Matrix Can Be Obtained By Rotation
     public boolean findRotation(int[][] mat, int[][] target) {
         for (int i = 0; i < 4; i++) {
             if (isEqual(mat, target))
