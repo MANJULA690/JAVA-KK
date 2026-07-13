@@ -305,6 +305,8 @@ public class assignment {
         }
     }
 
+
+    // Two Sum
     public int[] twoSum(int[] nums, int target) {
         int[] ans = new int[2];
         int n = nums.length;
@@ -319,6 +321,8 @@ public class assignment {
         return ans;
     }
 
+
+    // Find N Unique Integers Sum up to Zero
     public int[] sumZero(int n) {
         int[] res = new int[n];
         int idx = 0;
@@ -329,6 +333,8 @@ public class assignment {
         return res;
     }
 
+
+    // Lucky Number In a Matrix
     public List<Integer> luckyNumbers(int[][] matrix) {
         List<Integer> rowMin = new ArrayList<>();
         List<Integer> colMax = new ArrayList<>();
