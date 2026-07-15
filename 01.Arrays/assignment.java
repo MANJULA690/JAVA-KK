@@ -361,6 +361,8 @@ public class assignment {
         return rowMin;
     }
 
+
+    // 53. Maximum Subarray
     public int maxSubArray(int[] nums) {
         int curr = 0, max = Integer.MIN_VALUE;
         for (int i = 0; i < nums.length; i++) {
@@ -373,6 +375,8 @@ public class assignment {
         return max;
     }
 
+
+    // 566. Reshape the Matrix
     public int[][] matrixReshape(int[][] mat, int r, int c) {
         int m = mat.length;
         int n = mat[0].length;
@@ -390,6 +394,8 @@ public class assignment {
         return res;
     }
 
+
+    // 66. Plus One
     public int[] plusOne(int[] digits) {
         int n = digits.length;
         for (int i = n - 1; i >= 0; i--) {
