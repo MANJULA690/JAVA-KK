@@ -410,6 +410,8 @@ public class assignment {
         return res;
     }
 
+
+    // 26. Remove Duplicates from Sorted Array
     public int removeDuplicates(int[] nums) {
         int i = 1;
         for (int j = 1; j < nums.length; j++) {
@@ -421,6 +423,8 @@ public class assignment {
         return i;
     }
 
+
+    // 1217. Minimum Cost to Move Chips to The Same Position
     public int minCostToMoveChips(int[] position) {
         int evenCount = 0;
         int oddCount = 0;
